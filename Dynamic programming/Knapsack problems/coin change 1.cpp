@@ -10,37 +10,35 @@ Explanation: Four Possible ways are:
 
 
 
-class Solution{
+class Solution
+{
   public:
-    int cutRod(int price[], int n) {
-        int len[n];
-        for(int i=0;i<=n;i++)
-        {
-            len[i]=i+1;
-        }
-        int s=sizeof(len)/sizeof(int);
-        int t[n+1][s+1];
-        for(int i=0;i<=n;i++)
-        {
-            for(int j=0;j<=n;j++)
-            {
-                if(i==0||j==0)
-                 t[i][j]=0;
-            }
-        }
-        for(int i=1;i<=n;i++)
-        {
-            for(int j=1;j<=s;j++)
-            {
-                
-                if(len[i-1]<=j)
-                {
-                    t[i][j]=max(price[i-1]+t[i][j-len[i-1]],t[i-1][j]);
-                }
-                else
-                 t[i][j]=t[i-1][j];
-            }
-        }
-        return t[n][s];
+    long long int count( int S[], int m, int n )
+    {
+       long long int t[m+1][n+1];
+       for(long long int i=0;i<=n;i++)
+       {
+           t[0][i]=0;
+       }
+           for(long long int j=0;j<=m;j++)
+           {
+               
+                t[j][0]=1;
+           }
+       
+       for(long long int i=1;i<=m;i++)
+       {
+           for(long long int j=1;j<=n;j++)
+           {
+               if(S[i-1]<=j)
+               {
+                   t[i][j]=t[i][j-S[i-1]]+t[i-1][j];
+               }
+               else
+               t[i][j]=t[i-1][j];
+           }
+       }
+       return t[m][n];
+        
     }
 };
