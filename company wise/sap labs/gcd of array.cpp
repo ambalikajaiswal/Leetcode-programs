@@ -25,3 +25,20 @@ int gcd(int n,int a[])
     return res;
 }
 };
+
+
+OR
+
+class Solution
+{
+	public:
+    int gcd(int n, int a[])
+    {
+    int res=a[0];
+    for(int i=1;i<n;i++)
+    {
+        res=__gcd(res,a[i]);
+    }
+    return res;
+    }
+};
