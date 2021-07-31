@@ -44,3 +44,40 @@ They are used to control program from outside instead of hard coding those value
 argv[argc] is a NULL pointer.
 argv[0] holds the name of the program.
 argv[1] points to the first command line argument and argv[n] points last argument.
+
+
+Output in different scenarios:
+
+Without argument: When the above code is compiled and executed without passing any argument, it produces following output.
+$ ./a.out
+Program Name Is: ./a.out
+No Extra Command Line Argument Passed Other Than Program Name
+
+
+Three arguments : When the above code is compiled and executed with a three arguments, it produces the following output.
+$ ./a.out First Second Third
+Program Name Is: ./a.out
+Number Of Arguments Passed: 4
+----Following Are The Command Line Arguments Passed----
+argv[0]: ./a.out
+argv[1]: First
+argv[2]: Second
+argv[3]: Third
+
+
+Single Argument : When the above code is compiled and executed with a single argument separated by space but inside double quotes, it produces the following output.
+$ ./a.out "First Second Third"
+Program Name Is: ./a.out
+Number Of Arguments Passed: 2
+----Following Are The Command Line Arguments Passed----
+argv[0]: ./a.out
+argv[1]: First Second Third
+
+
+Single argument in quotes separated by space : When the above code is compiled and executed with a single argument separated by space but inside single quotes, it produces the following output.
+$ ./a.out 'First Second Third'
+Program Name Is: ./a.out
+Number Of Arguments Passed: 2
+----Following Are The Command Line Arguments Passed----
+argv[0]: ./a.out
+argv[1]: First Second Third
