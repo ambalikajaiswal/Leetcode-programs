@@ -42,3 +42,16 @@ public:
         return{-1,-1};
     }
 };
+
+
+//python soluion
+ def twoSum(self, nums: List[int], target: int) -> List[int]:
+        seen={} //dictionary to store values an dindex
+        for i,value in enumerate(nums):
+            remaining=target-nums[i]
+            if remaining in seen:
+                return[i,seen[remaining]]
+            else:
+                seen[value]=i
+        return none
+        
