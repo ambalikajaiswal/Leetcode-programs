@@ -22,4 +22,4 @@ public:
     }
 };
 
-//give the indices of the pair sum 
+//give the indices of the pair sum and above codde will only work if sorted
