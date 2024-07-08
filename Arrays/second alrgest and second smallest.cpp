@@ -41,3 +41,23 @@ int secondLargest(int arr[],int n)
     }
     return second_large;                
 }
+
+//python sol:
+import sys
+class Solution:
+    def print2largest(self, arr):
+        INT_MIN=-sys.maxsize-1
+        max=INT_MIN
+        sec_max=INT_MIN
+        n=len(arr)
+        if n<2:
+            return -1
+        
+        for i in range(len(arr)):
+            if max<arr[i]:
+                sec_max=max
+                max=arr[i]
+            elif sec_max<arr[i] and arr[i]!=max:
+                sec_max=arr[i]
+        return sec_max
+
