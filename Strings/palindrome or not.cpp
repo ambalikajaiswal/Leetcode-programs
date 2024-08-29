@@ -19,3 +19,27 @@ public:
 	}
 
 };
+
+type 2
+class Solution {
+public:
+    bool isPalindrome(int x) {
+       int res=0;
+       int dup=x;
+       
+       while(x>0){
+        int ld=x%10;
+        res=(res*10)+ld;
+        x=x/10;
+       }
+      if (dup == res) {
+        // If equal, return true
+        // indicating it's a palindrome
+        return true;
+    } else {
+        // If not equal, return false
+        // indicating it's not a palindrome
+        return false;
+    }
+    }
+};
