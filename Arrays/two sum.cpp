@@ -1,3 +1,5 @@
+//this will work only for sorted arrays.
+
 class Solution {
 public:
     vector<int> twoSum(vector<int>& a, int target) {
