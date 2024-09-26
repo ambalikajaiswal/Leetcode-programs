@@ -6,6 +6,44 @@ Explanation: index 2 is 3.
 It is the peak element as it is 
 greater than its neighbour 2.*/
 
+class Solution {
+public:
+    int findPeakElement(vector<int>& a) {
+       int n=a.size();
+       if(n==1)
+       return 0;
+       if(a[0]>a[1]){
+        return 0;
+       }
+       if(a[n-1]>a[n-2])
+       return n-1;
+       
+        int l=1;
+        int h=n-2;
+        while(l<=h){
+            int m=l+(h-l)/2;
+           
+                if(a[m]>a[m-1] && a[m]>a[m+1]){
+                    return m;
+                
+            }
+            else if(a[m-1]>a[m]){
+                h=m-1;
+            }
+            else{
+                l=m+1;
+            }
+        }
+         return -1; 
+       
+      
+    }
+};
+
+
+
+
+
 class Solution
 {
     public:
@@ -46,3 +84,5 @@ return -1;
 }
     }
 };
+
+
