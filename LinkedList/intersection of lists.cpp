@@ -25,3 +25,26 @@ public:
         return NULL;
     }
 };
+
+
+//optimised
+class Solution:
+    def getlen(self, head: ListNode):
+        cnt=0
+        while(head is not None):
+            cnt+=1
+            head=head.next
+        return cnt
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        la=self.getlen(headA)
+        lb=self.getlen(headB)
+        while(la>lb):
+            headA=headA.next
+            la-=1
+        while(lb>la):
+            headB=headB.next
+            lb-=1
+        while(headA!=headB):
+             headA=headA.next
+             headB=headB.next
+        return headA
