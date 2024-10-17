@@ -31,3 +31,22 @@ public:
         
     }
 };
+
+
+..python
+    class Solution:
+    def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
+        if head is None:
+            return None
+        while head is not None and head.val==val:
+            head=head.next
+        temp=head
+        prev=None
+        while temp is not None:
+            if temp.val==val:
+                prev.next=temp.next
+                temp=temp.next
+            else:
+                prev=temp
+                temp=temp.next
+        return head
