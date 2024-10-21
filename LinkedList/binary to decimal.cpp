@@ -15,3 +15,23 @@ public:
         return res;
     }
 };
+
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        int cnt=0;
+        ListNode* temp=head;
+        while(temp!=NULL){
+            cnt++;
+            temp=temp->next;
+        }
+        temp=head;
+        int b=0;
+        while(temp!=NULL){
+            b+=temp->val*pow(2,cnt-1);
+            cnt--;
+            temp=temp->next;
+        }
+        return b;
+    }
+};
