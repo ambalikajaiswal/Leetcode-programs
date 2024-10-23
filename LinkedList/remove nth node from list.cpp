@@ -53,6 +53,10 @@ public:
         }
         ListNode*p=temp->next;
         temp->next=p->next;
+        delete p;
+        return head;
+    }
+}
 
 
 //python
