@@ -109,3 +109,37 @@ public:
         return rhead;
     }
 };
+
+\\python
+class Solution:
+    def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
+        l=None
+        r=None
+        lhead=None
+        rhead=None
+        temp=head
+        if head is None or head.next is None:
+            return head
+        while temp is not None:
+            if temp.val>=x:
+                if r is None:
+                    r=temp
+                    rhead=r
+                else:
+                    r.next=temp
+                    r=r.next
+            else:
+                if l is None:
+                    l=temp
+                    lhead=l
+                else:
+                    l.next=temp
+                    l=l.next
+            temp=temp.next
+        if l:
+            l.next=rhead
+        if r:
+            r.next=None
+        if lhead:
+            return lhead
+        return rhead
