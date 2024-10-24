@@ -59,3 +59,53 @@ public:
         
     }
 };
+
+//easier approach
+
+class Solution {
+public:
+    ListNode* partition(ListNode* head, int x) {
+        ListNode*right=NULL;
+        ListNode*left=NULL;
+        ListNode*rhead=NULL;
+        ListNode*lhead=NULL;
+        if(head==NULL || head->next==NULL){
+            return head;
+        }
+        ListNode*temp=head;
+        while(temp!=NULL){
+            if(temp->val>=x){
+                if(right==NULL){
+                right=temp;
+                rhead=right;
+                }
+                else{
+                    right->next=temp;
+                    right=right->next;
+                }
+            }
+            else{
+                if(left==NULL){
+                    left=temp;
+                    lhead=left;
+                }
+                else{
+                    left->next=temp;
+                    left=left->next;
+                }
+            }
+            temp=temp->next;
+
+        }
+        if(left){
+            left->next=rhead;
+        }
+        if(right){
+            right->next=NULL;
+        }
+        if(lhead){
+            return lhead;
+        }
+        return rhead;
+    }
+};
