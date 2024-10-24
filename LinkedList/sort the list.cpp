@@ -18,3 +18,17 @@ public:
         return head;
     }
 };
+
+class Solution:
+    def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        a=[]
+        temp=head
+        while temp is not None:
+            a.append(temp.val)
+            temp=temp.next
+        a.sort()
+        temp=head
+        for i in range(len(a)):
+            temp.val=a[i]
+            temp=temp.next
+        return head
