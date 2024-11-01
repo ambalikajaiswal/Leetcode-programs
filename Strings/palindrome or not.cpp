@@ -43,3 +43,24 @@ public:
     }
     }
 };
+
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        n = len(s)
+        p = ''
+        s=s.lower()
+        for i in range(n):
+            if s[i].isalpha() or s[i].isnumeric():
+                p += s[i]
+        
+        m = len(p)
+        h = 0
+        r = m - 1
+        while h < r:
+            if p[h] == p[r]:
+                h += 1
+                r -= 1
+            else:
+                return False
+        return True
